@@ -104,9 +104,11 @@ export class DatabaseStorage implements IStorage {
   sessionStore: session.Store;
 
   constructor() {
+    // Use a default local MongoDB URL if DATABASE_URL is not set
+    const DATABASE_URL = process.env.DATABASE_URL || 'mongodb://127.0.0.1:27017/usns';
     // Create session store with MongoDB
     this.sessionStore = MongoStore.create({
-      mongoUrl: process.env.DATABASE_URL,
+      mongoUrl: DATABASE_URL,
       collectionName: 'sessions'
     });
   }
