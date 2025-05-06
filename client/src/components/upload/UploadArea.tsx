@@ -17,7 +17,7 @@ const UploadArea: React.FC<UploadAreaProps> = ({ onFileSelect }) => {
       if (isValidImageType(file)) {
         onFileSelect(file);
       } else {
-        alert('Please select a valid image file (JPEG, PNG, or DICOM).');
+        alert('Please select a valid image file (TIF, PNG, JPG, NII.GZ, NIfTI).');
       }
     }
   }, [onFileSelect]);
@@ -69,7 +69,7 @@ const UploadArea: React.FC<UploadAreaProps> = ({ onFileSelect }) => {
         <input {...getInputProps()} className="hidden" />
       </Button>
       
-      <p className="mt-4 text-sm text-gray-600">Supported formats: JPEG, PNG, DICOM</p>
+      <p className="mt-4 text-sm text-gray-600">Supported formats: TIF, PNG, JPG, NII.GZ, NIfTI</p>
     </div>
   );
 };
